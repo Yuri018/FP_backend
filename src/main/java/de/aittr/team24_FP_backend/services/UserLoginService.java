@@ -3,12 +3,15 @@ package de.aittr.team24_FP_backend.services;
 import de.aittr.team24_FP_backend.domain.Role;
 import de.aittr.team24_FP_backend.domain.UserLogin;
 import de.aittr.team24_FP_backend.exception_handling.exceptions.UserAlreadyExistsException;
+import de.aittr.team24_FP_backend.exception_handling.exceptions.UserLoginNotFoundException;
 import de.aittr.team24_FP_backend.repositories.UserLoginRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserLoginService implements UserDetailsService {
@@ -67,5 +70,29 @@ public class UserLoginService implements UserDetailsService {
         userLogin.setPassword(encodedPassword);
 
         return repository.save(userLogin);
+    }
+
+    public List<UserLogin> getAllUsersLogin() {
+        return repository.findAll();
+    }
+
+    public UserLogin findByUsername(String username) {
+        UserLogin user = repository.findByUsername(username);
+
+        if (user == null) {
+            throw new UserLoginNotFoundException(String.format(
+                    "There are no users username [%s] in the database", username));
+        }
+        return user;
+}
+
+    public UserLogin findById(int id) {
+        UserLogin user = repository.findById(id).orElse(null);
+
+        if (user == null) {
+            throw new UserLoginNotFoundException(String.format(
+                    "There are no users named [%d] in the database", id));
+        }
+        return user;
     }
 }
