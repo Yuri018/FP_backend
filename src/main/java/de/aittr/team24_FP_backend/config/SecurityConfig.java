@@ -30,6 +30,7 @@ public class SecurityConfig {
                                 .requestMatchers(HttpMethod.GET, "/user_login/admin/**").hasRole("ADMIN")
                                 .requestMatchers(HttpMethod.POST, "/user_login/register").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/user_login/register/admin").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.POST, "/example_parsing").permitAll()
                                 .anyRequest().authenticated()
                 ).httpBasic(Customizer.withDefaults());
 
