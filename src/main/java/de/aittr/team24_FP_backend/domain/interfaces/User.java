@@ -1,20 +1,9 @@
 package de.aittr.team24_FP_backend.domain.interfaces;
 
-import java.util.Date;
-
 public interface User {
-
     int getId();
 
     void setId(int id);
-
-    String getFirstName();
-
-    void setFirstName(String firstName);
-
-    String getLastName();
-
-    void setLastName(String lastName);
 
     String getEmail();
 
@@ -24,35 +13,11 @@ public interface User {
 
     void setPassword(String password);
 
-    Date getDateOfBirth();
+    String getFirstName();
 
-    void setDateOfBirth(Date dateOfBirth);
+    void setFirstName(String firstName);
 
-    boolean isNews();
+    String getLastName();
 
-    void setNews(boolean news);
-
-    boolean isCulturalLife();
-
-    void setCulturalLife(boolean culturalLife);
-
-    boolean isChild();
-
-    void setChild(boolean child);
-
-    boolean isHealth();
-
-    void setHealth(boolean health);
-
-    boolean isShop();
-
-    void setShop(boolean shop);
-
-    boolean isCafe();
-
-    void setCafe(boolean cafe);
-
-    boolean isService();
-
-    void setService(boolean service);
+    void setLastName(String lastName);
 }

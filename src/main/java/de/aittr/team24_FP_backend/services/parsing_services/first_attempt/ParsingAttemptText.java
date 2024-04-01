@@ -1,8 +1,7 @@
-package de.aittr.team24_FP_backend.parsing.firstAttempt;
+package de.aittr.team24_FP_backend.services.parsing_services.first_attempt;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
@@ -20,13 +19,7 @@ public class ParsingAttemptText {
 
         Elements cultureEls = baseDoc.select("body > div#page-wrapper > div#layout-grid >div#layout-grid__area--herounit > div > div > div.mainbar__right > ul > li:nth-child(2) > div > div > div.image__overlay.align--bottom ");
 
-        System.out.println(cultureEls.get(0).child(0).text());
-        System.out.println(cultureEls.get(0).child(0).attr("href"));
-
         String urlToCulture = url + cultureEls.get(0).child(0).attr("href");
-
-        System.out.println(urlToCulture);
-        System.out.println("***************************");
 
         Document cultDoc = Jsoup.connect(urlToCulture)
                 .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36")
@@ -36,12 +29,7 @@ public class ParsingAttemptText {
 
         Elements contents = cultDoc.select("body > div#page-wrapper > div#layout-grid > div#layout-grid__area--maincontent > div:nth-child(3) > article:nth-child(1) > h3 ");
 
-        System.out.println(contents.get(0).child(0).text());
-        System.out.println(contents.get(0).child(0).attr("href"));
-
         String urlToEvents = url + contents.get(0).child(0).attr("href");
-
-        System.out.println(urlToEvents);
 
         Document eventsDoc = Jsoup.connect(urlToEvents)
                 .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36")
@@ -54,9 +42,5 @@ public class ParsingAttemptText {
         String descr = events.get(0).child(0).text();
 
         System.out.println(descr);
-//
-
-
-
     }
 }
