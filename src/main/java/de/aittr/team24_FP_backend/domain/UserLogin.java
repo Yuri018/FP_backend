@@ -2,6 +2,7 @@ package de.aittr.team24_FP_backend.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -17,8 +18,9 @@ public class UserLogin implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
     @Column(name = "email")
+    @Email
     private String username;
     @Column(name = "password")
     private String password;
@@ -31,21 +33,34 @@ public class UserLogin implements UserDetails {
     )
     private Set<Role> roles = new HashSet<>();
 
+    @OneToOne(mappedBy = "userLogin", cascade = CascadeType.ALL)
+    private User user;
+
+
     public UserLogin() {
     }
 
-    public UserLogin(int id, String username, String password, Set<Role> roles) {
+    public UserLogin(Integer id, String username, String password, Set<Role> roles, User user) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.roles = roles;
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -55,6 +70,7 @@ public class UserLogin implements UserDetails {
     }
 
     @Override
+    @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;
     }
@@ -113,28 +129,31 @@ public class UserLogin implements UserDetails {
 
         UserLogin userLogin = (UserLogin) o;
 
-        if (id != userLogin.id) return false;
+        if (!Objects.equals(id, userLogin.id)) return false;
         if (!Objects.equals(username, userLogin.username)) return false;
         if (!Objects.equals(password, userLogin.password)) return false;
-        return Objects.equals(roles, userLogin.roles);
+        if (!Objects.equals(roles, userLogin.roles)) return false;
+        return Objects.equals(user, userLogin.user);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
+        int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (roles != null ? roles.hashCode() : 0);
+        result = 31 * result + (user != null ? user.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
-        return "User_login{" +
+        return "UserLogin{" +
                 "id=" + id +
-                ", email='" + username + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", roles=" + roles +
+                ", user=" + user +
                 '}';
     }
 

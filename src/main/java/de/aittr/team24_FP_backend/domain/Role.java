@@ -11,14 +11,14 @@ public class Role implements GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
     @Column(name = "name")
     private String name;
 
     public Role() {
     }
 
-    public Role(int id, String name) {
+    public Role(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -41,7 +41,7 @@ public class Role implements GrantedAuthority {
 
     @Override
     public int hashCode() {
-        int result = id;
+        Integer result = id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
     }

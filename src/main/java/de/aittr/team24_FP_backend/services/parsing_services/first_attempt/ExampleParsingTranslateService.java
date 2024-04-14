@@ -1,19 +1,11 @@
-package de.aittr.team24_FP_backend.services;
+package de.aittr.team24_FP_backend.services.parsing_services.first_attempt;
 
+/*
 import de.aittr.team24_FP_backend.domain.ExampleParsingTranslate;
 import de.aittr.team24_FP_backend.repositories.ExampleParsingTranslateRepository;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
-import org.springframework.stereotype.Service;
+import de.aittr.team24_FP_backend.services.translation_service.TranslationService;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-@Service
+//@Service
 public class ExampleParsingTranslateService {
 
     private ExampleParsingTranslateRepository repository;
@@ -38,5 +30,5 @@ public class ExampleParsingTranslateService {
         exampleParsingTranslate.setDescription(translationService.translateText(description));
         return repository.save(exampleParsingTranslate);
     }
-
 }
+*/
