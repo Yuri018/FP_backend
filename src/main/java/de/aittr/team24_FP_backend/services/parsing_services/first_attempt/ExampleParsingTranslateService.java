@@ -1,5 +1,6 @@
 package de.aittr.team24_FP_backend.services.parsing_services.first_attempt;
 
+/*
 import de.aittr.team24_FP_backend.domain.ExampleParsingTranslate;
 import de.aittr.team24_FP_backend.repositories.ExampleParsingTranslateRepository;
 import de.aittr.team24_FP_backend.services.translation_service.TranslationService;
@@ -30,3 +31,4 @@ public class ExampleParsingTranslateService {
         return repository.save(exampleParsingTranslate);
     }
 }
+*/
