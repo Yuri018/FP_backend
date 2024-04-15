@@ -191,13 +191,6 @@ public class UserLoginService implements UserDetailsService {
                 .toList();
     }
 
-    public List<UserLogin> findAllByUserNewsAndCityTrue(String cityName) {
-        List<UserLogin> usersWithChildrenInfo = userLoginRepository.findAllByUserNewsInfoTrue();
-        return usersWithChildrenInfo.stream()
-                .filter(userLogin -> isCityTrueForUser(userLogin, cityName))
-                .toList();
-    }
-
 
 
     private boolean isCityTrueForUser(UserLogin userLogin, String cityName) {
@@ -247,5 +240,15 @@ public class UserLoginService implements UserDetailsService {
         userRepository.save(user);
     }
 
+    public User findUserByToken(String username) {
+        UserLogin userLogin = userLoginRepository.findByUsername(username);
+
+        if (userLogin == null) {
+            throw new UserLoginNotFoundException(String.format(
+                    "There are no users username [%s] in the database", username));
+        }
+        User user = userLogin.getUser();
+        return user;
+    }
 
 }
