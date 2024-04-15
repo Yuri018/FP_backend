@@ -1,6 +1,7 @@
 package de.aittr.team24_FP_backend.controllers;
 
 import de.aittr.team24_FP_backend.repositories.MultiEntitySpecification;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +19,7 @@ public class SearchByKeywordsController {
         this.multiEntitySpecification = multiEntitySpecification;
     }
 
+    @Operation(summary = "searchByKeywords")
     @GetMapping("/search")
     public List<Object> searchByKeywords(@RequestParam String keywords) {
         return multiEntitySpecification.findByKeyword(keywords);

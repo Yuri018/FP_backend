@@ -15,6 +15,7 @@ public class NewsCategory {
     private Integer id;
 
     @Column(name = "title")
+    @Basic(fetch = FetchType.LAZY)
     private String title;
 
     @OneToMany(mappedBy = "newsCategory",cascade = CascadeType.ALL)
@@ -55,6 +56,8 @@ public class NewsCategory {
         this.generalNews = generalNews;
     }
 
+//    private List<String>
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -70,9 +73,6 @@ public class NewsCategory {
 
     @Override
     public String toString() {
-        return "NewsCategory{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                '}';
+        return "NewsCategory:" + generalNews.toString();
     }
 }

@@ -9,4 +9,5 @@ import java.util.List;
 public interface BerlinDeNewsParsingRepository extends JpaRepository<BerlinDeNewsParsObj, Integer> {
 
     List<BerlinDeNewsParsObj> findAllByLocalNewsCategory (LocalNewsCategory localNewsCategory);
+    List<BerlinDeNewsParsObj> findAllByLocalNewsCategoryNot(LocalNewsCategory localNewsCategory);
 }

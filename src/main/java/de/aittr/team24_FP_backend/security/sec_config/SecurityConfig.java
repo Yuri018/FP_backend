@@ -5,6 +5,7 @@ import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
+import org.springframework.boot.autoconfigure.security.reactive.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -16,6 +17,9 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import static org.springframework.core.io.buffer.DataBufferUtils.matcher;
 
 @Configuration
 @EnableWebSecurity
@@ -83,6 +87,11 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/auth/get_auth_info").hasRole("USER")
 
                         .requestMatchers(HttpMethod.GET, "/search").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/general_news/get_info_by/{categoryTitle}").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/general_news/except/{categoryTitle}").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/berlin_news").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/berlin_news/get_info_by/{categoryTitle}").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/berlin_news/except/{categoryTitle}").permitAll()
 
                         .anyRequest().authenticated())
                 .addFilterAfter(filter, UsernamePasswordAuthenticationFilter.class)
