@@ -3,11 +3,10 @@ package de.aittr.team24_FP_backend.parsing.news_pars_services;
 import de.aittr.team24_FP_backend.parsing.interfaces_and_abstract_classes.CommonParsingTextService;
 import de.aittr.team24_FP_backend.parsing.news_pars_models.LocalNewsCategory;
 import de.aittr.team24_FP_backend.parsing.news_pars_models.BerlinDeNewsParsObj;
-import de.aittr.team24_FP_backend.parsing.news_pars_repositories.BerlinDeNewsCategoryRepository;
+import de.aittr.team24_FP_backend.parsing.news_pars_repositories.LocalNewsCategoryRepository;
 import de.aittr.team24_FP_backend.parsing.news_pars_repositories.BerlinDeNewsParsingRepository;
 import de.aittr.team24_FP_backend.services.translation_service.TranslationService;
 import jakarta.transaction.Transactional;
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -19,15 +18,15 @@ import java.io.IOException;
 public class BerlinDeNewsParsingTranslateService extends CommonParsingTextService {
 
     BerlinDeNewsParsingRepository berlinDeNewsParsingRepository;
-    BerlinDeNewsCategoryRepository berlinDeNewsCategoryRepository;
+    LocalNewsCategoryRepository localNewsCategoryRepository;
     TranslationService translationService;
 
     public BerlinDeNewsParsingTranslateService(
             BerlinDeNewsParsingRepository berlinDeNewsParsingRepository,
-            BerlinDeNewsCategoryRepository berlinDeNewsCategoryRepository,
+            LocalNewsCategoryRepository localNewsCategoryRepository,
             TranslationService translationService) {
         this.berlinDeNewsParsingRepository = berlinDeNewsParsingRepository;
-        this.berlinDeNewsCategoryRepository = berlinDeNewsCategoryRepository;
+        this.localNewsCategoryRepository = localNewsCategoryRepository;
         this.translationService = translationService;
     }
 
@@ -83,7 +82,7 @@ public class BerlinDeNewsParsingTranslateService extends CommonParsingTextServic
                     .toString();
 
             BerlinDeNewsParsObj berlinDeNewsParsObj = new BerlinDeNewsParsObj();
-            LocalNewsCategory berlinNewsCategory = berlinDeNewsCategoryRepository.findByTitle("CULTURAL_EVENTS");
+            LocalNewsCategory berlinNewsCategory = localNewsCategoryRepository.findByTitle("CULTURAL_EVENTS");
 
             berlinDeNewsParsObj.setTitle(translationService.translateText(titleEventHighlights2));
             berlinDeNewsParsObj.setShortDescription(translationService.translateText(shortDescription));
@@ -155,7 +154,7 @@ public class BerlinDeNewsParsingTranslateService extends CommonParsingTextServic
                     .toString();
 
             BerlinDeNewsParsObj berlinDeNewsParsObj = new BerlinDeNewsParsObj();
-            LocalNewsCategory berlinNewsCategory = berlinDeNewsCategoryRepository.findByTitle("EXHIBITIONS");
+            LocalNewsCategory berlinNewsCategory = localNewsCategoryRepository.findByTitle("EXHIBITIONS");
 
             berlinDeNewsParsObj.setTitle(translationService.translateText(title));
             berlinDeNewsParsObj.setShortDescription(translationService.translateText(shortDescription));
@@ -233,7 +232,7 @@ public class BerlinDeNewsParsingTranslateService extends CommonParsingTextServic
                     .toString();
 
             BerlinDeNewsParsObj berlinDeNewsParsObj = new BerlinDeNewsParsObj();
-            LocalNewsCategory berlinNewsCategory = berlinDeNewsCategoryRepository.findByTitle("EXHIBITIONS");
+            LocalNewsCategory berlinNewsCategory = localNewsCategoryRepository.findByTitle("EXHIBITIONS");
 
             berlinDeNewsParsObj.setTitle(translationService.translateText(title));
             berlinDeNewsParsObj.setShortDescription(translationService.translateText(shortDescription));
@@ -300,7 +299,7 @@ public class BerlinDeNewsParsingTranslateService extends CommonParsingTextServic
                     .toString();
 
             BerlinDeNewsParsObj berlinDeNewsParsObj = new BerlinDeNewsParsObj();
-            LocalNewsCategory berlinNewsCategory = berlinDeNewsCategoryRepository.findByTitle("CULTURAL_EVENTS");
+            LocalNewsCategory berlinNewsCategory = localNewsCategoryRepository.findByTitle("CULTURAL_EVENTS");
 
             berlinDeNewsParsObj.setTitle(translationService.translateText(title));
             berlinDeNewsParsObj.setShortDescription(translationService.translateText(shortDescription));
@@ -361,7 +360,7 @@ public class BerlinDeNewsParsingTranslateService extends CommonParsingTextServic
                     .toString();
 
             BerlinDeNewsParsObj berlinDeNewsParsObj = new BerlinDeNewsParsObj();
-            LocalNewsCategory berlinNewsCategory = berlinDeNewsCategoryRepository.findByTitle("ACTUAL_NEWS");
+            LocalNewsCategory berlinNewsCategory = localNewsCategoryRepository.findByTitle("ACTUAL_NEWS");
 
             berlinDeNewsParsObj.setTitle(translationService.translateText(title));
             berlinDeNewsParsObj.setShortDescription(translationService.translateText(shortDescription));
@@ -422,7 +421,7 @@ public class BerlinDeNewsParsingTranslateService extends CommonParsingTextServic
                     .toString();
 
             BerlinDeNewsParsObj berlinDeNewsParsObj = new BerlinDeNewsParsObj();
-            LocalNewsCategory berlinNewsCategory = berlinDeNewsCategoryRepository.findByTitle("ACTUAL_NEWS");
+            LocalNewsCategory berlinNewsCategory = localNewsCategoryRepository.findByTitle("ACTUAL_NEWS");
 
             berlinDeNewsParsObj.setTitle(translationService.translateText(title));
             berlinDeNewsParsObj.setShortDescription(translationService.translateText(shortDescription));
@@ -490,7 +489,7 @@ public class BerlinDeNewsParsingTranslateService extends CommonParsingTextServic
                     .toString();
 
             BerlinDeNewsParsObj berlinDeNewsParsObj = new BerlinDeNewsParsObj();
-            LocalNewsCategory berlinNewsCategory = berlinDeNewsCategoryRepository.findByTitle("ACTUAL_NEWS");
+            LocalNewsCategory berlinNewsCategory = localNewsCategoryRepository.findByTitle("ACTUAL_NEWS");
 
             berlinDeNewsParsObj.setTitle(translationService.translateText(title));
             berlinDeNewsParsObj.setShortDescription(translationService.translateText(shortDescription));

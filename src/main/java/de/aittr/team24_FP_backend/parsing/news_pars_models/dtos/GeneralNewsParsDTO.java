@@ -1,45 +1,25 @@
-package de.aittr.team24_FP_backend.parsing.news_pars_models;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+package de.aittr.team24_FP_backend.parsing.news_pars_models.dtos;
 
 import java.util.Objects;
 
-@Entity
-@Table(name = "general_news")
-public class GeneralNewsParsObj {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+public class GeneralNewsParsDTO {
     private Integer id;
-
-    @Column(name = "title")
     private String title;
-
-    @Column(name = "short_descr")
     private String shortDescription;
-
-    @Column(name = "content")
     private String content;
-
-    @Column(name = "img_url")
     private String imgUrl;
+    private String categoryTitle;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "news_category_id")
-    private NewsCategory newsCategory;
-
-    public GeneralNewsParsObj() {
+    public GeneralNewsParsDTO() {
     }
 
-    public GeneralNewsParsObj(Integer id, String title, String shortDescription, String content, String imgUrl, NewsCategory newsCategory) {
+    public GeneralNewsParsDTO(Integer id, String title, String shortDescription, String content, String imgUrl, String categoryTitle) {
         this.id = id;
         this.title = title;
         this.shortDescription = shortDescription;
         this.content = content;
         this.imgUrl = imgUrl;
-        this.newsCategory = newsCategory;
+        this.categoryTitle = categoryTitle;
     }
 
     public Integer getId() {
@@ -78,39 +58,40 @@ public class GeneralNewsParsObj {
         return imgUrl;
     }
 
-    public void setImgUrl(String imageUrl) {
-        this.imgUrl = imageUrl;
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
-    public NewsCategory getCategory() {
-        return newsCategory;
+    public String getCategoryTitle() {
+        return categoryTitle;
     }
 
-    public void setCategory(NewsCategory newsCategory) {
-        this.newsCategory = newsCategory;
+    public void setCategoryTitle(String categoryTitle) {
+        this.categoryTitle = categoryTitle;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        GeneralNewsParsObj that = (GeneralNewsParsObj) o;
-        return Objects.equals(id, that.id) && Objects.equals(title, that.title) && Objects.equals(shortDescription, that.shortDescription) && Objects.equals(content, that.content) && Objects.equals(imgUrl, that.imgUrl) && Objects.equals(newsCategory, that.newsCategory);
+        GeneralNewsParsDTO that = (GeneralNewsParsDTO) o;
+        return Objects.equals(id, that.id) && Objects.equals(title, that.title) && Objects.equals(shortDescription, that.shortDescription) && Objects.equals(content, that.content) && Objects.equals(imgUrl, that.imgUrl) && Objects.equals(categoryTitle, that.categoryTitle);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, shortDescription, content, imgUrl, newsCategory);
+        return Objects.hash(id, title, shortDescription, content, imgUrl, categoryTitle);
     }
 
     @Override
     public String toString() {
-        return "GeneralNewsParsObj{" +
+        return "GeneralNewsParsDTO{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", shortDescription='" + shortDescription + '\'' +
                 ", content='" + content + '\'' +
                 ", imgUrl='" + imgUrl + '\'' +
+                ", categoryTitle='" + categoryTitle + '\'' +
                 '}';
     }
 }

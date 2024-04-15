@@ -9,4 +9,5 @@ import java.util.List;
 public interface GeneralNewsParsingRepository extends JpaRepository<GeneralNewsParsObj, Integer> {
 
     List<GeneralNewsParsObj> findAllByNewsCategory(NewsCategory newsCategory);
+    List<GeneralNewsParsObj> findAllByNewsCategoryNot(NewsCategory newsCategory);
 }
