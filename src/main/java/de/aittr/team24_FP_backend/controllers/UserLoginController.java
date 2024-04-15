@@ -58,14 +58,10 @@ public class UserLoginController {
         service.updateUserSubscriptionsByToken(newUser, userName);
     }
 
+    @GetMapping("/user_account")
+    public User findUserByToken() {
+        String userName = authService.getAuthInfo().getName();
+        return service.findUserByToken(userName);
+    }
 
-//    @GetMapping("/children_info_true")
-//    public List<UserLogin> findAllByUserChildrenInfoTrue() {
-//        return service.findAllByUserChildrenInfoTrue();
-//    }
-//
-//    @GetMapping("/{cityName}/children_info_and_city_true")
-//    public List<UserLogin> findAllByUserChildrenAndCityTrue(@PathVariable String cityName) {
-//        return service.findAllByUserChildrenAndCityTrue(cityName);
-//    }
 }
