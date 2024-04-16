@@ -37,7 +37,7 @@ public class TokenService {
 
     public String generateAccessToken(@Nonnull UserLogin user) {
         LocalDateTime currentDate = LocalDateTime.now();
-        Instant expirationInstant = currentDate.plusDays(1).atZone(ZoneId.systemDefault()).toInstant();
+        Instant expirationInstant = currentDate.plusDays(7).atZone(ZoneId.systemDefault()).toInstant();
         Date expirationDate = Date.from(expirationInstant);
 
         return Jwts.builder()
@@ -51,7 +51,7 @@ public class TokenService {
 
     public String generateRefreshToken(@Nonnull UserLogin user) {
         LocalDateTime currentDate = LocalDateTime.now();
-        Instant expirationInstant = currentDate.plusDays(7).atZone(ZoneId.systemDefault()).toInstant();
+        Instant expirationInstant = currentDate.plusDays(15).atZone(ZoneId.systemDefault()).toInstant();
         Date expirationDate = Date.from(expirationInstant);
 
         return Jwts.builder()
