@@ -10,15 +10,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/{city}/doctors_info")
 public class DoctorsController {
-    
+
     private DoctorsService service;
 
     public DoctorsController(DoctorsService service) {
         this.service = service;
     }
-    
+
     @Operation(summary = "Save")
-    @PostMapping("/admin/{doctorCategory}")
+    @PostMapping("/{doctorCategory}/admin")
     public DoctorsInfo save(@RequestBody DoctorsInfo doctor, @PathVariable String city, @PathVariable String doctorCategory) {
         return service.save(doctor, city, doctorCategory);
     }
@@ -42,8 +42,8 @@ public class DoctorsController {
     }
 
     @Operation(summary = "deleteById")
-    @DeleteMapping("/admin/{id}")
-    public void deleteById(@PathVariable Integer id) {
+    @DeleteMapping("/{doctorCategory}/admin/{id}")
+    public void deleteById(@PathVariable Integer id, @PathVariable String doctorCategory) {
         service.deleteById(id);
     }
 
@@ -60,7 +60,7 @@ public class DoctorsController {
     }
 
     @Operation(summary = "update")
-    @PutMapping("/admin/{doctorCategory}")
+    @PutMapping("/{doctorCategory}/admin")
     public void update(@RequestBody DoctorsInfo doctor, @PathVariable String city, @PathVariable String doctorCategory) {
         service.update(doctor, city, doctorCategory);
     }
