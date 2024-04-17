@@ -48,10 +48,6 @@ public class DoctorsService {
         }
     }
 
-    public List<DoctorsInfo> findAllByCity(String city) {
-        return doctorsRepository.findAllByCityName(city);
-    }
-
     public DoctorsInfo findById (int id) {
         DoctorsInfo doctor = doctorsRepository.findById(id).orElse(null);
 
