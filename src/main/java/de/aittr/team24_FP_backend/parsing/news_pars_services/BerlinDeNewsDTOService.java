@@ -30,6 +30,7 @@ public class BerlinDeNewsDTOService {
             newsDTO.setTitle(berlinNewsParsObj.getTitle());
             newsDTO.setShortDescription(berlinNewsParsObj.getShortDescription());
             newsDTO.setImgUrl(berlinNewsParsObj.getImgUrl());
+            newsDTO.setImgCopyright(berlinNewsParsObj.getImgCopyright());
             newsDTO.setContent(berlinNewsParsObj.getContent());
             newsDTO.setCategoryTitle(berlinNewsParsObj.getBerlinNewsCategory().getTitle());
             newsDtos.add(newsDTO);
