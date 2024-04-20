@@ -21,6 +21,7 @@ public abstract class CommonParsingTextService implements TextParsingService {
     final int TIMEOUT = 5000;
     protected final String REFERRER = "https://www.google.com";
     protected final String BERLIN_NEWS_URL = "https://www.berlin.de";
+    protected final String MUENCHEN_NEWS_URL = "https://www.muenchen.de/";
     protected final String INFO_URL = "https://germany24.ru";
     final String ATTRIBUTE_KEY = "href";
 
