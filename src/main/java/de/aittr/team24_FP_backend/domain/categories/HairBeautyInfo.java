@@ -60,6 +60,10 @@ public class HairBeautyInfo {
         this.city = city;
     }
 
+    public HairBeautyInfo(String title) {
+        this.title = title;
+    }
+
     public City getCity() {
         return city;
     }

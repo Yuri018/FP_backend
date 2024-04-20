@@ -68,6 +68,10 @@ public class DoctorsInfo {
         this.doctorsCategory = doctorsCategory;
     }
 
+    public DoctorsInfo(String title) {
+        this.title = title;
+    }
+
     public DoctorsCategory getDoctorsCategory() {
         return doctorsCategory;
     }

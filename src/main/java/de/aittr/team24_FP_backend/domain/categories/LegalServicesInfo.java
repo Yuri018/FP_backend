@@ -61,6 +61,10 @@ public class LegalServicesInfo {
         this.city = city;
     }
 
+    public LegalServicesInfo(String title) {
+        this.title = title;
+    }
+
     public City getCity() {
         return city;
     }

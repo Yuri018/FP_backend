@@ -61,6 +61,10 @@ public class ShopsInfo {
         this.city = city;
     }
 
+    public ShopsInfo(String title) {
+        this.title = title;
+    }
+
     public City getCity() {
         return city;
     }

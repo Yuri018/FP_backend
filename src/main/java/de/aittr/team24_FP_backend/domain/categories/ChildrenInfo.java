@@ -62,6 +62,10 @@ public class ChildrenInfo {
         this.city = city;
     }
 
+    public ChildrenInfo(String title) {
+        this.title = title;
+    }
+
     public City getCity() {
         return city;
     }
