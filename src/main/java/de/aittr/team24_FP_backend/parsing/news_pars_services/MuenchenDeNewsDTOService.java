@@ -5,10 +5,12 @@ import de.aittr.team24_FP_backend.parsing.news_pars_models.MuenchenDeNewsParsObj
 import de.aittr.team24_FP_backend.parsing.news_pars_models.dtos.MuenchenDeNewsDTO;
 import de.aittr.team24_FP_backend.parsing.news_pars_repositories.LocalNewsCategoryRepository;
 import de.aittr.team24_FP_backend.parsing.news_pars_repositories.MuenchenDeNewsParsingRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class MuenchenDeNewsDTOService {
 
     MuenchenDeNewsParsingRepository muenchenDeNewsParsingRepository;
