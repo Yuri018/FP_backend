@@ -14,7 +14,7 @@ RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
 # переходим к новому шагу
 # берем linux, в котором уже нет maven-а и прочего мусора, а есть только JRE (Виртуальная машина)
-FROM oracle/openjdk:20
+FROM openjdk:20-jdk-slim
 # назвали нашу папку с зависимостями DEPENDENCY
 ARG DEPENDENCY=/workspace/app/target/dependency
 # из предыдущего шага забираем все зависимости и копируем их в новый linux
