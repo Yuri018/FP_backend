@@ -175,6 +175,6 @@ public class TranslatorsInfo {
                 "Описание: " + description + "\n" +
                 "Адрес: " + address + "\n" +
                 "Телефон: " + tel + "\n" +
-                "Ссылка: " + link;
+                "Город: " + city.getName().toLowerCase();
     }
 }

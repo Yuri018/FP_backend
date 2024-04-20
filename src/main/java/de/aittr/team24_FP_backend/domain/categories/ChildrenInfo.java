@@ -176,7 +176,8 @@ public class ChildrenInfo {
                 "Описание: " + description + "\n" +
                 "Адрес: " + address + "\n" +
                 "Телефон: " + tel + "\n" +
-                "Ссылка: " + link;
+                "Ссылка: " + link + "\n" +
+                "Город: " + city.getName().toLowerCase();
     }
 }
 
