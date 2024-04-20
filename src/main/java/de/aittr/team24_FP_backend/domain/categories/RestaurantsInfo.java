@@ -61,6 +61,10 @@ public class RestaurantsInfo {
         this.city = city;
     }
 
+    public RestaurantsInfo(String title) {
+        this.title = title;
+    }
+
     public City getCity() {
         return city;
     }

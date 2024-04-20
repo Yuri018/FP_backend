@@ -40,6 +40,10 @@ public class UserLogin implements UserDetails {
     public UserLogin() {
     }
 
+    public UserLogin(User user) {
+        this.user = user;
+    }
+
     public UserLogin(Integer id, String username, String password, Set<Role> roles, User user) {
         this.id = id;
         this.username = username;

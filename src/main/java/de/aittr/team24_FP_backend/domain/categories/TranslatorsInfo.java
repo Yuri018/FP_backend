@@ -61,6 +61,10 @@ public class TranslatorsInfo {
         this.city = city;
     }
 
+    public TranslatorsInfo(String title) {
+        this.title = title;
+    }
+
     public City getCity() {
         return city;
     }
