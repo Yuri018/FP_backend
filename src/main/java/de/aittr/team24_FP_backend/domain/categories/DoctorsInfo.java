@@ -198,8 +198,8 @@ public class DoctorsInfo {
                 "Адрес: " + address + "\n" +
                 "Телефон: " + tel + "\n" +
                 "Ссылка: " + link+ "\n" +
-                "Город: " + city +
-                "Категория: " + doctorsCategory;
+                "Город: " + city.getName().toLowerCase() + "\n" +
+                "Категория: " + doctorsCategory.getName().toLowerCase();
     }
 
 }
