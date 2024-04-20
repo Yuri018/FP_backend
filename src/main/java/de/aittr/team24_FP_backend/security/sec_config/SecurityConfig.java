@@ -92,6 +92,9 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/berlin_news").permitAll()
                         .requestMatchers(HttpMethod.GET, "/berlin_news/get_info_by/{categoryTitle}").permitAll()
                         .requestMatchers(HttpMethod.GET, "/berlin_news/except/{categoryTitle}").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/muenchen_news").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/muenchen_news/get_info_by/{categoryTitle}").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/muenchen_news/except/{categoryTitle}").permitAll()
 
                         .anyRequest().authenticated())
                 .addFilterAfter(filter, UsernamePasswordAuthenticationFilter.class)
