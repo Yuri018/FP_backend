@@ -1,4 +1,7 @@
 spring:
+  mvc:
+    servlet:
+      path: /api
   application:
     name: team24_FP_backend
   datasource:
