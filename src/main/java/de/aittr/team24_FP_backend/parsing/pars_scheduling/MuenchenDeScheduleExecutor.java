@@ -22,9 +22,15 @@ public class MuenchenDeScheduleExecutor {
         muenchenDeNewsParsingTranslateService.muenchenEvent1ParsingTranslateSave();
     }
 
-    @Scheduled(cron = "0 * * * * *")
+//    @Scheduled(cron = "0 * * * * *")
     @Transactional
     public void saveMuenchenDeNewsToDbTask2() {
         muenchenDeNewsParsingTranslateService.muenchenEvent2ParsingTranslateSave();
+    }
+
+    @Scheduled(cron = "0 * * * * *")
+    @Transactional
+    public void saveMuenchenDeNewsToDbTask3() {
+        muenchenDeNewsParsingTranslateService.muenchenEvent3ParsingTranslateSave();
     }
 }
